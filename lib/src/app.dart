@@ -12,6 +12,7 @@ class App extends StatelessWidget {
         // ),
         body: LoginScreen(),
       ),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
