@@ -38,6 +38,9 @@ class _LoginScreenState extends State<LoginScreen> {
             return 'Please enter a valid email';
           }
         },
+        onSaved: (value) {
+          debugPrint(value);
+        },
       );
   Widget passwordField() => TextFormField(
         decoration: InputDecoration(
@@ -50,10 +53,15 @@ class _LoginScreenState extends State<LoginScreen> {
             return 'Password must be greater 4 characters';
           }
         },
+        onSaved: (value) {
+          debugPrint(value);
+        },
       );
   Widget buttonField() => RaisedButton(
         onPressed: () {
-          formKey.currentState.validate();
+          if (formKey.currentState.validate()) {
+            formKey.currentState.save();
+          }
         },
         child: Text("Submit"),
         color: Colors.blueAccent,
